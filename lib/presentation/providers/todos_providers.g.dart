@@ -102,3 +102,44 @@ abstract class _$TodoInvitados extends $Notifier<List<Todo>> {
     element.handleValue(ref, created);
   }
 }
+
+@ProviderFor(filteredTodos)
+const filteredTodosProvider = FilteredTodosProvider._();
+
+final class FilteredTodosProvider
+    extends $FunctionalProvider<List<Todo>, List<Todo>, List<Todo>>
+    with $Provider<List<Todo>> {
+  const FilteredTodosProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'filteredTodosProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$filteredTodosHash();
+
+  @$internal
+  @override
+  $ProviderElement<List<Todo>> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  List<Todo> create(Ref ref) {
+    return filteredTodos(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(List<Todo> value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<List<Todo>>(value),
+    );
+  }
+}
+
+String _$filteredTodosHash() => r'8833a4e09643bb5556bc01ef8a4145abab38e17c';

@@ -54,3 +54,20 @@ class TodoInvitados extends _$TodoInvitados {
 
   }
 }
+
+
+@riverpod
+List<Todo> filteredTodos(Ref ref) {
+  final currentFilter = ref.watch(todoCurrentFilterProvider);
+  final todos = ref.watch(todoInvitadosProvider);
+
+
+  switch(currentFilter){
+    case FilterType.all:
+      return todos;
+    case FilterType.completed:
+      return todos.where((todo)=> todo.done).toList();
+    case FilterType.pending:
+      return todos.where((todo)=> !todo.done).toList();
+  }
+}
