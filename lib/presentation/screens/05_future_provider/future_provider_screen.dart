@@ -22,10 +22,27 @@ class FutureProviderScreen extends ConsumerWidget {
           error: (error, stackTrace) => Text('$error'), 
           ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+        heroTag: 'bton-1',
         child: const Icon( Icons.refresh ),
-        onPressed: () {  },
+        onPressed: () {  
+          // ref.invalidate(pokemonNameProvider);
+          ref.read(pokemonIdProvider.notifier).nextPokemin();
+        },
       ),
+      const SizedBox(height: 10,),
+      FloatingActionButton(
+        child: const Icon( Icons.minimize ),
+        onPressed: () {  
+          // ref.invalidate(pokemonNameProvider);
+          ref.read(pokemonIdProvider.notifier).prevPokemon();
+        },
+      ),
+        ],
+      )
     );
   }
 }

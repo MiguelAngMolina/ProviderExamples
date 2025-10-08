@@ -40,4 +40,50 @@ final class PokemonNameProvider
   }
 }
 
-String _$pokemonNameHash() => r'f330bc38ec7404d47c4fb1ef177250fd85b5465b';
+String _$pokemonNameHash() => r'25d0a3879644d7cf71d78f313cae43318b7f8be4';
+
+@ProviderFor(PokemonId)
+const pokemonIdProvider = PokemonIdProvider._();
+
+final class PokemonIdProvider extends $NotifierProvider<PokemonId, int> {
+  const PokemonIdProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'pokemonIdProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$pokemonIdHash();
+
+  @$internal
+  @override
+  PokemonId create() => PokemonId();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(int value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<int>(value),
+    );
+  }
+}
+
+String _$pokemonIdHash() => r'206473f3359c4fe3542a010572b74530fd9b84c9';
+
+abstract class _$PokemonId extends $Notifier<int> {
+  int build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<int, int>;
+    final element = ref.element
+        as $ClassProviderElement<AnyNotifier<int, int>, int, Object?, Object?>;
+    element.handleValue(ref, created);
+  }
+}
