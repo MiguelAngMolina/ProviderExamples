@@ -66,7 +66,10 @@ class _TodoView extends ConsumerWidget {
               return SwitchListTile(
                 title: Text(invitado.description),
                 value: invitado.done, 
-                onChanged: ( value ) {}
+                onChanged: ( value ) {
+
+                  ref.read(todoInvitadosProvider.notifier).toggleTodo(invitado.id);
+                }
               );
             },
           ),
