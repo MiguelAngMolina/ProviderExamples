@@ -19,7 +19,7 @@ final class CounterProvider extends $NotifierProvider<Counter, int> {
           argument: null,
           retry: null,
           name: r'counterProvider',
-          isAutoDispose: true,
+          isAutoDispose: false,
           dependencies: null,
           $allTransitiveDependencies: null,
         );
@@ -40,7 +40,7 @@ final class CounterProvider extends $NotifierProvider<Counter, int> {
   }
 }
 
-String _$counterHash() => r'dbc78334c5caf0478f090c84e170d6106ddfa4f9';
+String _$counterHash() => r'8c847311c605a8d4316e64f6136ca663ba8197f2';
 
 abstract class _$Counter extends $Notifier<int> {
   int build();
@@ -111,7 +111,7 @@ final class UsernameProvider extends $NotifierProvider<Username, String> {
           argument: null,
           retry: null,
           name: r'usernameProvider',
-          isAutoDispose: true,
+          isAutoDispose: false,
           dependencies: null,
           $allTransitiveDependencies: null,
         );
@@ -132,7 +132,7 @@ final class UsernameProvider extends $NotifierProvider<Username, String> {
   }
 }
 
-String _$usernameHash() => r'dce9a57d14cc9f80c14f8e1ee98fe8a8310178bd';
+String _$usernameHash() => r'd4b353fd902f0d0c09e5addac3bba48fa3494e46';
 
 abstract class _$Username extends $Notifier<String> {
   String build();
